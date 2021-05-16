@@ -1,14 +1,12 @@
 import React from "react";
+import "./Navbar.css";
 
 const Navbar = (props) => (
   <nav className="navbar">
-    <div className="col-sm">
-      <a href="https://github.com/SerenaChandler/memory-game">Memory Game</a>
-    </div>
-    <div className={props.currentScore === 0 ? "blue" : "pink"}>
+    <div>
       {props.message}
     </div>
-    <div className="col-sm">
+    <div className="col">
       Score: <span className="score">{props.currentScore} </span>| High Score:{" "}
       <span className="highScore">{props.highScore}</span>
     </div>

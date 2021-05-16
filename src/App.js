@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import MonsterCard from "./components/MonsterCard";
 import Wrapper from "./components/Wrapper";
-import Title from "./components/Title";
+
 import monsters from "./monster.json";
 import Navbar from "./components/Navbar/Navbar"
 
@@ -10,7 +10,7 @@ import Navbar from "./components/Navbar/Navbar"
 class App extends Component {
   // Setting this.state.monsters to the monsters json array
   state = {
-    message: "Welcome to the Memory Game!",
+    message: "Click on a monster to begin! Don't click the same monster twice!",
     highScore: 0,
     currentScore: 0,
     monsters: monsters,
@@ -61,14 +61,14 @@ class App extends Component {
           currentScore = {this.state.currentScore}
           highScore = {this.state.highScore}
         />
-        <Title >Don't click the same monster twice!</Title>
+        
         {this.state.monsters.map((friend) => (
           <MonsterCard
             name={friend.name}
             id={friend.id}
             key={friend.id}
             image={friend.image}
-            clicked={friend.clicked}
+            // clicked={friend.clicked}
             checkCard={this.checkCard}
           />
         ))}
