@@ -64,6 +64,7 @@ class App extends Component {
         <Title >Don't click the same monster twice!</Title>
         {this.state.monsters.map((friend) => (
           <FriendCard
+            name={friend.name}
             id={friend.id}
             key={friend.id}
             image={friend.image}
