@@ -3,6 +3,8 @@
   text-align: center;
   font-size: 3rem;
   text-decoration: underline;
-  color: #ff7b47;
+  color: #1600df;
   margin-bottom: 50px;
+  background-color: coral;
+  border-radius: 5px;
 }

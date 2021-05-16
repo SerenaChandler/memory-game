@@ -1,5 +1,5 @@
 .card {
-  background: rgb(255, 141, 35);
+  background: rgb(151, 118, 87);
   border-radius: 2px;
   height: 250px;
   margin: 1rem;
@@ -8,6 +8,7 @@
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
   text-align: left;
   overflow: hidden;
+  
 }
 
 
@@ -17,6 +18,8 @@
 
 
 .card:hover {
-  box-shadow: 0 6px 10px #999, 0 6px 10px #999;
+  box-shadow: 0 5px 10px #999;
   cursor: pointer;
+  border:rgb(247, 139, 15) solid 5px;
+  border-radius: 10px;
 }

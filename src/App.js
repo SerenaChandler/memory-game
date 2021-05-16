@@ -33,7 +33,7 @@ class App extends Component {
       this.setState({
         highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
         currentScore: 0,
-        message: "Too Bad!",
+        message: `Oh no, you already clicked on ${name}`,
         unclickedMonsters: monsters
       })
      
@@ -44,7 +44,7 @@ class App extends Component {
 
       this.setState({
         currentScore: this.state.currentScore + 1,
-        message: "nice!",
+        message:`Nice, you hadn't clicked on ${name} yet!`,
         unclickedMonsters: remainingMonsters
       })
       this.shuffleCards(monsters)
