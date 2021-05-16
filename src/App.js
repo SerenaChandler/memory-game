@@ -25,25 +25,29 @@ class App extends Component {
     };
   }; 
 
-  checkCard = (event) => {
+  checkCard = name => {
 
     const checkMonster = this.state.unclickedMonsters.find(item => item.name === name);
     
-    if (event.target.dataset.clicked === "false") {
-      this.setState({
-        currentScore: this.state.currentScore + 1,
-        message: "nice!"
-      })
-      event.target.dataset.clicked = "true";
-      
-      //shuffle them
-      this.shuffleCards(monsters)
-    }else {
+    if (checkMonster === undefined) {
       this.setState({
         highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
         currentScore: 0,
-        message: "Too Bad!"
+        message: "Too Bad!",
+        unclickedMonsters: monsters
       })
+      //shuffle them
+     
+    }else {
+
+      const remainingMonsters = this.state.unclickedMonsters.filter(item => item.name !== name)
+
+      this.setState({
+        currentScore: this.state.currentScore + 1,
+        message: "nice!",
+        unclickedMonsters: remainingMonsters
+      })
+      this.shuffleCards(monsters)
 
     }
   };
@@ -57,7 +61,7 @@ class App extends Component {
           currentScore = {this.state.currentScore}
           highScore = {this.state.highScore}
         />
-        <Title style={styles.headerStyle}>Don't click the same monster twice!</Title>
+        <Title >Don't click the same monster twice!</Title>
         {this.state.monsters.map((friend) => (
           <FriendCard
             id={friend.id}
