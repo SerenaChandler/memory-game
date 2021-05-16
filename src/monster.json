@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Basarios",
+    "image": "./images/basarios.png"
+  },
+  {
+    "id": 2,
+    "name": "Chameleos",
+    "image": "./images/Chameleos.png"
+  },
+  {
+    "id": 3,
+    "name": "Diablos",
+    "image": "./images/Diablos.png"
+  },
+  {
+    "id": 4,
+    "name": "GoreMagala",
+    "image": "./images/GoreMagala.png"
+  },
+  {
+    "id": 5,
+    "name": "GreatMaccao",
+    "image": "./images/GreatMaccao.png"
+  },
+  {
+    "id": 6,
+    "name": "Magnamalo",
+    "image": "./images/Magnamalo.png"
+  },
+  {
+    "id": 7,
+    "name": "Mizutsune",
+    "image": "./images/mizutsune.png"
+  },
+  {
+    "id": 8,
+    "name": "Nargacuga",
+    "image": "./images/Nargacuga.png"
+  },
+  {
+    "id": 9,
+    "name": "Rathalos",
+    "image": "./images/Rathalos.png"
+  },
+  {
+    "id": 10,
+    "name": "Tetsucabra",
+    "image": "./images/Tetsucabra.png"
+  },
+  {
+    "id": 11,
+    "name": "Tigrex",
+    "image": "./images/Tigrex.png"
+  },
+  {
+    "id": 12,
+    "name": "Zinogre",
+    "image": "./images/Zinogre.png"
+  }
+]
