@@ -3,6 +3,7 @@ import FriendCard from "./components/FriendCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import friends from "./friends.json";
+import Navbar from "./components/Navbar/Navbar"
 
 const styles = {
   headerStyle: {
@@ -13,18 +14,35 @@ const styles = {
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
+    message: "Welcome to the Memory Game!",
+    highScore: 0,
+    currentScore: 0,
     friends: friends,
   };
 
+  shuffleCards = array => {
+    for (let i = array.length - 1; i > 0; i--) {
+      let j = Math.floor(Math.random() * ( i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    };
+  }; 
+
   checkCard = (event) => {
     if (event.target.dataset.clicked === "false") {
-      // get the id of the clicked on card, change the state of that object's clicked prop to true, using a set state function
-      // const specificId = +event.target.dataset.id;
-      // const array = this.state.friends.map((friend) => friend.id )
-      // const index = array.indexOf(specificId)
-      // this.state.friends[index].clicked = "true"
+      this.setState({
+        currentScore: this.state.currentScore + 1,
+        message: "nice!"
+      })
       event.target.dataset.clicked = "true";
+      
       //shuffle them
+      this.shuffleCards(friends)
+    }else {
+      this.setState({
+        highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
+        message: "Too Bad!"
+      })
+
     }
   };
 
@@ -32,6 +50,11 @@ class App extends Component {
   render() {
     return (
       <Wrapper>
+            <Navbar
+          message = {this.state.message}
+          currentScore = {this.state.currentScore}
+          highScore = {this.state.highScore}
+        />
         <Title style={styles.headerStyle}>Click to start game!</Title>
         {this.state.friends.map((friend) => (
           <FriendCard
