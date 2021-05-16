@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-function FriendCard(props) {
+function MonsterCard(props) {
 
   return (
     <div onClick={() => props.checkCard(props.name)} className="card">
@@ -12,4 +12,4 @@ function FriendCard(props) {
   );
 }
 
-export default FriendCard;
+export default MonsterCard;

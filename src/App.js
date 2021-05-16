@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import FriendCard from "./components/MonsterCard";
+import MonsterCard from "./components/MonsterCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
 import monsters from "./monster.json";
@@ -25,7 +25,7 @@ class App extends Component {
     };
   }; 
 
-  checkCard = name => {
+  checkCard = (name) => {
 
     const checkMonster = this.state.unclickedMonsters.find(item => item.name === name);
     
@@ -36,7 +36,7 @@ class App extends Component {
         message: "Too Bad!",
         unclickedMonsters: monsters
       })
-      //shuffle them
+     
      
     }else {
 
@@ -63,7 +63,7 @@ class App extends Component {
         />
         <Title >Don't click the same monster twice!</Title>
         {this.state.monsters.map((friend) => (
-          <FriendCard
+          <MonsterCard
             name={friend.name}
             id={friend.id}
             key={friend.id}
