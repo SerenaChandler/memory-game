@@ -1,23 +1,21 @@
 import React, { Component } from "react";
-import FriendCard from "./components/FriendCard";
+import FriendCard from "./components/MonsterCard";
 import Wrapper from "./components/Wrapper";
 import Title from "./components/Title";
-import friends from "./friends.json";
+import monsters from "./monster.json";
 import Navbar from "./components/Navbar/Navbar"
 
-const styles = {
-  headerStyle: {
-    background: "purple",
-  },
-};
+
 
 class App extends Component {
-  // Setting this.state.friends to the friends json array
+  // Setting this.state.monsters to the monsters json array
   state = {
     message: "Welcome to the Memory Game!",
     highScore: 0,
     currentScore: 0,
-    friends: friends,
+    monsters: monsters,
+    clickedMonsters: monsters,
+    unclickedMonsters: monsters
   };
 
   shuffleCards = array => {
@@ -28,6 +26,9 @@ class App extends Component {
   }; 
 
   checkCard = (event) => {
+
+    const checkMonster = this.state.unclickedMonsters.find(item => item.name === name);
+    
     if (event.target.dataset.clicked === "false") {
       this.setState({
         currentScore: this.state.currentScore + 1,
@@ -36,17 +37,18 @@ class App extends Component {
       event.target.dataset.clicked = "true";
       
       //shuffle them
-      this.shuffleCards(friends)
+      this.shuffleCards(monsters)
     }else {
       this.setState({
         highScore: (this.state.currentScore > this.state.highScore) ? this.state.currentScore : this.state.highScore,
+        currentScore: 0,
         message: "Too Bad!"
       })
 
     }
   };
 
-  // Map over this.state.friends and render a FriendCard component for each friend object
+  // Map over this.state.monsters and render a FriendCard component for each friend object
   render() {
     return (
       <Wrapper>
@@ -55,8 +57,8 @@ class App extends Component {
           currentScore = {this.state.currentScore}
           highScore = {this.state.highScore}
         />
-        <Title style={styles.headerStyle}>Click to start game!</Title>
-        {this.state.friends.map((friend) => (
+        <Title style={styles.headerStyle}>Don't click the same monster twice!</Title>
+        {this.state.monsters.map((friend) => (
           <FriendCard
             id={friend.id}
             key={friend.id}
